@@ -1,0 +1,28 @@
+example running commands for predict.py to run the script 
+
+
+How to run it — three example commands:
+
+
+Horse → Zebra:
+
+python predict.py --input datasets/horse2zebra/testA/n02381460_1.jpg \
+                  --checkpoint checkpoints/horse2zebra/G_AB_epoch_200.pth \
+                  --output results/horse_to_zebra.png \
+                  --mode horse2zebra
+
+
+Your own photo → Monet painting:
+
+python predict.py --input my_photo.jpg \
+                  --checkpoint checkpoints/monet2photo/G_AB_epoch_200.pth \
+                  --output results/my_monet.png \
+                  --mode monet2photo
+
+
+Summer → Winter:
+
+python predict.py --input datasets/summer2winter/testA/some_image.jpg \
+                  --checkpoint checkpoints/summer2winter/G_AB_epoch_200.pth \
+                  --output results/summer_to_winter.png \ 
+                  --mode summer2winter 
