@@ -1,28 +1,52 @@
-example running commands for predict.py to run the script 
+How to run predict.py — Example Commands: 
+
+==> This will get you model inference of image translation on your own image and you can save it to results/your_output_img or your own folder dir. 
 
 
-How to run it — three example commands:
-
+========================================
+HORSE <-> ZEBRA (Domain A=Horse, Domain B=Zebra)
+========================================
 
 Horse → Zebra:
-
-python predict.py --input datasets/horse2zebra/testA/n02381460_1.jpg \
-                  --checkpoint checkpoints/horse2zebra/G_AB_epoch_200.pth \
-                  --output results/horse_to_zebra.png \
+python predict.py --input <path_to_horse_image> \
+                  --checkpoint checkpoints/horse2zebra/G_AB_epoch_300.pth \
+                  --output results/<your_output_image_name>.png \
                   --mode horse2zebra
 
+Zebra → Horse:
+python predict.py --input <path_to_zebra_image> \
+                  --checkpoint checkpoints/horse2zebra/G_BA_epoch_300.pth \
+                  --output results/<your_output_image_name>.png \
+                  --mode horse2zebra
 
-Your own photo → Monet painting:
-
-python predict.py --input my_photo.jpg \
-                  --checkpoint checkpoints/monet2photo/G_AB_epoch_200.pth \
-                  --output results/my_monet.png \
-                  --mode monet2photo
-
+========================================
+SUMMER <-> WINTER (Domain A=Summer, Domain B=Winter)
+========================================
 
 Summer → Winter:
+python predict.py --input <path_to_summer_image> \
+                  --checkpoint checkpoints/summer2winter/G_AB_epoch_250.pth \
+                  --output results/<your_output_image_name>.png \
+                  --mode summer2winter
 
-python predict.py --input datasets/summer2winter/testA/some_image.jpg \
-                  --checkpoint checkpoints/summer2winter/G_AB_epoch_200.pth \
-                  --output results/summer_to_winter.png \ 
-                  --mode summer2winter 
+Winter → Summer:
+python predict.py --input <path_to_winter_image> \
+                  --checkpoint checkpoints/summer2winter/G_BA_epoch_250.pth \
+                  --output results/<your_output_image_name>.png \
+                  --mode summer2winter
+
+========================================
+MONET <-> PHOTO (Domain A=Monet, Domain B=Photo)
+========================================
+
+Monet → Photo:
+python predict.py --input <path_to_monet_painting> \
+                  --checkpoint checkpoints/monet2photo/G_AB_epoch_400.pth \
+                  --output results/<your_output_image_name>.png \
+                  --mode monet2photo
+
+Photo → Monet:
+python predict.py --input <path_to_real_photo> \
+                  --checkpoint checkpoints/monet2photo/G_BA_epoch_400.pth \
+                  --output results/<your_output_image_name>.png \
+                  --mode monet2photo
